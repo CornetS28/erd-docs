@@ -1,24 +1,9 @@
-# README
+# MINI-FACEBOOK
+- Is a ruby on rails project that implements a mini version of facebook backend process.
+### Authors
+- Samuel Cornet -- [User Github link](https://github.com/CornetS28)
+- Kingsley uche-- [User Github link](https://github.com/Urchmaney)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Project link:
+This project is available on [Github link](https://github.com/CornetS28/mini-facebook)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
