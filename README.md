@@ -1,5 +1,5 @@
 ### Final Rails Project (MINI-FACEBOOK)
-- This project aims to create User sigu up / log in using devise. It is a likely facebook app where user can create posts, like posts, send and confirm friend requests.
+- This project aims to create User sigu up / log in using devise. It is a likely facebook app where user can create posts, like posts, send and confirm friend requests. Is a ruby on rails project that implements a mini version of facebook backend process.
 
 ### Authors
 - Samuel Cornet -- [User Github link](https://github.com/CornetS28)
