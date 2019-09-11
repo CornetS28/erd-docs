@@ -1,0 +1,23 @@
+<div class="row">
+
+      Create a new post :
+    
+    <%= render "form", text:'Update post'%>
+ 
+  <div class="col-md-8 mx-auto">
+    <% @posts.each do |p| %>
+    
+          <%= image_tag p.author.image_link+"?s=50", class:"rounded-circle" %>
+        
+          <%= link_to p.author.name, user_path(p.author), class: ''%>
+          <br />
+          Published : <%= time_ago_in_words p.created_at %> ago
+        
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= p.content %></p>
+      </div>
+   
+    <% end %>
+  </div>
+</div>
