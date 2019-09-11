@@ -1,24 +1,9 @@
-# README
+### Final Rails Project (MINI-FACEBOOK)
+- This project aims to create User sigu up / log in using devise. It is a likely facebook app where user can create posts, like posts, send and confirm friend requests.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Authors
+- Samuel Cornet -- [User Github link](https://github.com/CornetS28)
+- Kingsley uche-- [User Github link](https://github.com/Urchmaney)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Project link:
+This project is available on [Github link](https://github.com/CornetS28/mini-facebook)
