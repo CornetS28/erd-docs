@@ -1,29 +1,13 @@
-<div class="container">
-  <div class="row">
+
     <% @users.each do |u|%>
-    <div class="col-md-3 px-1 mb-2 text-center">
-      <div class='w-100 h-100 shadow-sm py-4 px-3 bg-white'>
+    
         <%= image_tag u.image_link, class:'rounded-circle', alt:'Profile picture' %>
-        <%= link_to u.name, user_path(u), class: 'h5 mt-2 mb-0 d-block'%>
-        <small class='text-muted pt-0'><%=u.email%></small>
-        <small class='text-muted d-block pt-0'>Joined <%= time_ago_in_words u.created_at %> ago</small>
-        <%if current_user != u%>
-        <% if u.find_friends.any?{ |f| f==current_user} %>
-        <%= link_to friendship_path(id:u.id),class:'btn text-white btn-block btn-sm bg-danger mt-3', method: :delete do %>
-        <i class="fa fa-minus-circle"></i> Remove friend
-        <% end %>
-        <% elsif u.pending_friends.any?{ |f| f==current_user} %>
-        <%= accept_reject_pending(u.id) %>
-        <% else %>
-        <%= link_to friendships_path(user_id:u.id), class: "btn text-white btn-block btn-sm bg-teal mt-3", method: :post do%>
-        <span class=" fa fa-user-plus"></span> Add as friend
-        <% end %>
+        <%= link_to u.email, user_path(u)%>
+        <small><%=u.email%></small>
+        <small class='text'>Joined <%= time_ago_in_words u.created_at %> ago</small>
+     
+   <% end %>
 
-        <%end%>
-        <%end%>
+        
 
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div>
+  

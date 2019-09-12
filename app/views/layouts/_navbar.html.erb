@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-teal py-1">
-  <a class="navbar-brand" href="/">Final project</a>
+  <a class="navbar-brand" href="/">Final Rails Project</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,17 +18,8 @@
       <li class="nav-item">
         <%= link_to 'Profile', user_path(current_user), class:"nav-link"%>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Friends', users_path(filter: 'friends'), class:"nav-link"%>
-      </li>
-      <%if pending_request_count>0%>
-        <li class="nav-item">
-          <%= link_to  users_path(filter: 'pending'), class:"nav-link" do %>
-            Notifications
-            <span class="badge badge-pill d-inline badge-danger"><%= pending_request_count  %></span>
-          <%end%>
-        </li>
-      <%end%>
+      
+      
       <li class="nav-item">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"nav-link"%>
       </li>
@@ -38,5 +29,5 @@
 
 <div class="py-1  px-5 mb-4 shadow-sm">
   <%= image_tag current_user.image_link+"?s=50",class:"rounded-circle" %>
-  Welcome: <%= current_user.name.capitalize%>
+  
 </div>
