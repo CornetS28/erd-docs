@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = current_user.posts
-    
     @posts = @posts.sort { |a, b| b.created_at - a.created_at } unless @posts.empty?
   end
 
@@ -28,9 +27,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-   
-  end
+  def show;end
 
   def edit; end
 
