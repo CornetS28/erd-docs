@@ -10,4 +10,3 @@ class User < ApplicationRecord
   validates :email, format: { with: VALID_EMAIL_REGEX }
   validates :surname, :email, :first_name, presence: true
 end
-  
