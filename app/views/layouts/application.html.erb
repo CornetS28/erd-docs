@@ -10,15 +10,28 @@
   </head>
 
   <body>
+    <header class="row">
+      <h2 class="col-md-3 offset-md-1">micro-facebook</h2>
+      <%if user_signed_in?%>
+        <div class="col-md-4 offset-md-4">
+        Hello <span class="white-color"><%= current_user.surname %>  <%=current_user.first_name %> !</span>
+      
+        <%= link_to('Logout', destroy_user_session_path, method: :delete,class: 'btn btn-danger') %>   
+      </div>
+      <%else%>
+       <div class="col-md-2 offset-md-5">
+       <%= link_to('Login', new_user_session_path,class: 'btn white-color') %>   
+       <%= link_to('Register',new_user_registration_path,class: 'btn white-color') %>   
+      </div>
+        
+      <%end%>
+    </header>
     <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-     <p>
-        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      </p>
     <%= yield %>
   </body>
 </html>
