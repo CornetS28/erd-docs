@@ -1,48 +1,15 @@
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
-development:
   adapter: postgresql
   encoding: unicode
+  username: urchmaney
+  password: 123456
+  host: 127.0.0.1
+
+development:
+  <<: *default
   database: facebook-on-rails
-  username: urchmaney
-  password: 123456
-  host: 127.0.0.1
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: facebook-on-rails_test
-  username: urchmaney
-  password: 123456
-  host: 127.0.0.1
-
-production:
-  <<: *default
-  database: db/production.sqlite3
-default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: mini-facebook
-  username: urchmaney
-  password: 123456
-  host: 127.0.0.1
-
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: mini-facebook_test
-  username: urchmaney
-  password: 123456
-  host: 127.0.0.1
-
-production:
-  <<: *default
-  database: db/production.sqlite3
+  

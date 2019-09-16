@@ -56,7 +56,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
