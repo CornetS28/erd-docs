@@ -3,9 +3,7 @@
  
   <div class="col-md-8 clear-fix">
     <% @posts.each do |p| %>
-    
-          <%# <%= image_tag p.author.image_url+"?s=50", class:"rounded-circle" %>
-        
+  
           <%= link_to p.author.surname, user_path(p.author), class: 'post-user'%>
           <br />
           <span class="post-time  ">Published : <%= time_ago_in_words p.created_at %> ago</span>
@@ -13,6 +11,26 @@
       <div class="card-body post-content">
         <p class="card-text"><%= p.content %></p>
       </div>
+
+        <div class="card-footer bg-white">
+          <% if p.likes.any? {|like| like.user == current_user}%>
+            <%= link_to "",  like_path(id: p.id), 
+            method: :delete,class:"fa fa-lg fa-thumbs-down" %>
+          <% else %>
+            <%= link_to "", likes_path(id: p.id),
+            method: :post,class:"fa fa-lg fa-thumbs-up" %>
+          <% end %>
+          <div class="d-inline ">
+            Like : <%= p.likes.count %>
+          </div>
+        </div>
+
+        <div class="float-right">
+          <% if current_user == p.author %>
+          <%= link_to "Edit", edit_post_path(p), class:"btn btn-primary" %>
+          <%= link_to "Delete", post_path(p), method: :delete, class:"ml-2 btn btn-danger" %>
+          <%end%>
+        </div>
    
     <% end %>
   </div>

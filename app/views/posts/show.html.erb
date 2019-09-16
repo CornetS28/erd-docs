@@ -12,3 +12,23 @@
       <div class="card-body">
         <p class="card-text"><%= @post.content %></p>
       </div>
+
+      <div class="card-footer bg-white">
+        <% if @post.likes.any? {|like| like.user == current_user}%>
+        <%= link_to "",  like_path(id: @post.id), 
+            method: :delete,class:"fa fa-lg fa-thumbs-down" %>
+        <% else %>
+        <%= link_to "", likes_path(id: @post.id),
+            method: :post,class:"fa fa-lg fa-thumbs-up" %>
+        <% end %>
+        <div class="d-inline ">
+          Like : <%= @post.likes.count %>
+        </div>
+        <div class="float-right">
+          <% if current_user == @post.author %>
+          <%= link_to "Edit", edit_post_path(@post), class:"btn btn-primary" %>
+          <%= link_to "Delete", post_path(@post), method: :delete, class:"ml-2 btn btn-danger" %>
+          <%end%>
+        </div>
+      </div>
+    </div>
