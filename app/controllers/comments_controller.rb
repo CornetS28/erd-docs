@@ -6,5 +6,5 @@ class CommentsController < ApplicationController
     @comment = Comment.new(user_id: current_user.id, post_id: params[:post_id], comment: params[:comment])
     @comment.save
     redirect_back(fallback_location: root_path)
-	end
+  end
 end
