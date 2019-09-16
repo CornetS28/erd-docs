@@ -17,6 +17,16 @@
  @import "bootstrap-social";
  @import "font-awesome";
 
+
+ .card{
+     padding:12px;
+     margin-top: 15px;
+ }
+
+ .comment-name{
+     font-weight: bold;
+     color: #385898;
+ }
  .sign-btn{
      margin-top:5px;
      background-color: #5d9649;
@@ -49,6 +59,10 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-bottom: 10px;
+}
+
+.large-b-margin{
+    margin-bottom: 60px;
 }
 
  .clear-fix{
