@@ -18,7 +18,11 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+gem 'bootstrap', '~> 4.3.1'
+
 gem 'devise'
+
+gem 'rails-controller-testing'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -52,7 +56,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
