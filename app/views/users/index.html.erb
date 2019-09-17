@@ -1,5 +1,24 @@
 <%@users.each do |user|%>
     <p>
     <%=user.surname%>  <%=user.first_name%>
+        <%if current_user.friends.include? user%>
+            <p>friend</p>
+        <%elsif current_user.friend_requests.include? user%>
+            <p>request sent</p>
+        <%elsif current_user.requests.include? user%>
+             <%= form_with url: '/friends', method: 'patch' do |f| %>
+              <p>
+                <%=f.hidden_field :friend_id, value: user.id%>
+                <%= f.submit 'Accept Request'%>
+              </p>
+            <% end %>
+        <%else%>
+             <%= form_with url: '/friends', method: 'post' do |f| %>
+              <p>
+                <%=f.hidden_field :friend_id, value: user.id%>
+                <%= f.submit 'Add friend'%>
+              </p>
+            <% end %>
+        <%end%>
     </p>
 <%end%>
