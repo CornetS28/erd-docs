@@ -17,7 +17,10 @@
  @import "bootstrap-social";
  @import "font-awesome";
 
-
+.no-link-style{
+    text-decoration: none;
+    color:inherit;
+}
  .card{
      padding:12px;
      margin-top: 15px;
