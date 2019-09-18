@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 shadow-sm rounded px-2 py-5 mb-2 text-center bg-white">
+            <div class='h5 mt-2 mb-0'><%= current_user.first_name%> <%= current_user.last_name%> <br >
+                <small class='text-muted pt-0'>Email: <%=current_user.email%></small><br/> 
+                <small class='text-muted pt-0'>Surname: <%=current_user.surname%></small>
+                <small class='text-muted d-block pt-0'>Joined <%= time_ago_in_words  current_user.created_at %> ago</small>  
+            </div>
+        </div>
+
+        <div class="form-group shadow-textarea">
+            <% if current_user %>
+                <%= form_for @post do |f| %>
+                    <label for="exampleFormControlTextarea6">What's on your mind?</label>
+                    <%= f.text_area :content, class:"form-control z-depth-1", id:"exampleFormControlTextarea6", rows:"3", placeholder:"Write something here..." %>
+                    <%= f.submit "Post", class:"mt-2 float-right post-btn" %><br>
+                <% end %>
+                <strong>Friends: <%= current_user.friends.size %></strong>
+                
+                <div class="card col-md-12">
+                    <% current_user.posts.each do |post| %>
+                        <div class="card shadow-sm border-0 mb-3 ">
+                            <div class="card-header m-0 bg-white">
+                                Published : <%= time_ago_in_words post.created_at %> ago
+                            </div>
+                            <div class="card-content">
+                                <p class="card-text"><%= post.content %></p>
+                            </div>
+                        
+                            <% if current_user == post.author %>
+                                <%= link_to "Edit", edit_post_path(post), class:"btn mt-2 float-right btn-info" %>
+                                <%= link_to "Delete", post_path(post), method: :delete, class:"btn btn-danger" %>
+                            <%end%>
+                        </div>
+                    <% end %>
+                    </div> 
+            <% end %>
+        </div> 
+        </div>
+</div>
+
+                
+            
+        
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+ 
+      
+
+
+
+    

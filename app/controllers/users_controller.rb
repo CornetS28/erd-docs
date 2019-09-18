@@ -6,5 +6,7 @@ class UsersController < ApplicationController
     @users = User.all.reject{|u| u == current_user}
   end
 
-  def show; end
+  def show
+    @post = Post.new
+  end
 end
