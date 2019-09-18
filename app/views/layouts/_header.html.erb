@@ -5,7 +5,7 @@
        Hello <span class="white-color">
        <%= current_user.surname %>  <%=current_user.first_name %> !</span>
         <%= link_to('All users',users_path, class: 'btn btn-info' ) %> 
-        <%= link_to('Friends', users_path(filter: 'friends'),  class:"btn btn-info")%>
+        <%= link_to('Friends', friends_path(filter: 'friends'),  class:"btn btn-info")%>
        <%= link_to('Logout', destroy_user_session_path, method: :delete,class: 'btn btn-danger') %>
           
     </div>
