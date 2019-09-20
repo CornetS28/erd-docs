@@ -17,7 +17,7 @@ class LikeFlowTest < ActionDispatch::IntegrationTest
     sign_in @mike
     get '/'
     assert_difference '@post.likes.count', 1 do
-      post '/likes', params: {post_id: @post.id, user_id: @mike.id}
+      post '/likes', params: { post_id: @post.id, user_id: @mike.id }
     end
   end
 

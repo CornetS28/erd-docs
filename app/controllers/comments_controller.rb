@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   private
-  
+
   def comment_param
     params.permit(:post_id, :user_id, :comment)
   end

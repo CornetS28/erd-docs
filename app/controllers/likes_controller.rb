@@ -23,6 +23,7 @@ class LikesController < ApplicationController
   end
 
   private
+
   def like_param
     params.permit(:post_id, :user_id)
   end

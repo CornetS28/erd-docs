@@ -9,14 +9,14 @@ class CommentFlowTest < ActionDispatch::IntegrationTest
     @post = posts(:one)
   end
 
-  test "Comment is added" do
+  test 'Comment is added' do
     get '/'
     follow_redirect!
     assert_template 'users/sessions/new'
     sign_in @mike
     get '/'
     assert_difference '@post.comments.count', 1 do
-      post '/comments', params: {post_id: @post.id, user_id: @mike.id, comment: 'The next comment'}
+      post '/comments', params: { post_id: @post.id, user_id: @mike.id, comment: 'The next comment' }
     end
   end
 end
