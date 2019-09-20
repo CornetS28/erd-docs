@@ -1,10 +1,10 @@
     <div class="card mb-3">
       <div class="card-header m-0 row bg-white">
         <div class="col-1">
-          <%= image_tag @post.author.image_link+"?s=50", class:"rounded-circle" %>
+          <%# <%= image_tag @post.author.image_url+"?s=50", class:"rounded-circle" %> %>
         </div>
         <div class="col-11 text-left">
-          <%= link_to @post.author.name, user_path(@post.author), class: ''%>
+          <%# <%= link_to @post.author.name, user_path(@post.author), class: ''%> %>
           <br />
           Published : <%= time_ago_in_words @post.created_at %> ago
         </div>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="card-footer bg-white">
-        <% if @post.likes.any? {|like| like.user == current_user}%>
+        <% if current_user.liked_posts.include?(@post) %>
         <%= link_to "",  like_path(id: @post.id), 
             method: :delete,class:"fa fa-lg fa-thumbs-down" %>
         <% else %>
@@ -22,7 +22,7 @@
             method: :post,class:"fa fa-lg fa-thumbs-up" %>
         <% end %>
         <div class="d-inline ">
-          Like : <%= @post.likes.count %>
+          Like : <%= @post.likes_count %>
         </div>
         <div class="float-right">
           <% if current_user == @post.author %>
