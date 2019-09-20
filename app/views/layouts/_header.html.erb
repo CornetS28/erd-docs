@@ -1,18 +1,29 @@
 <header class="row">
     <h2 class="col-md-3 offset-md-1">micro-facebook</h2>
     <%if user_signed_in?%>
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-6 offset-md-2">
        Hello <span class="white-color">
+       
        <%= current_user.surname %>  <%=current_user.first_name %> !</span>
         <%= link_to('All users',users_path, class: 'btn btn-info' ) %> 
+        <% if User.any? %>
+          <%@users = User.all%>
+        <%end%>
+          <% @users.each do |user|%>
+              <%if current_user.friends.include? user%>
+                 <%" "%>
+              <%elsif current_user.friend_requests.include? user%>
+                 <%" "%>
+              <%elsif current_user.requests.include? user%>
+                 <%= link_to "Notifications", users_path,  class: 'btn btn-info' %>
+              <%end%>
+          <%end%>
         <%= link_to('Friends', friends_path(filter: 'friends'),  class:"btn btn-info")%>
        <%= link_to('Logout', destroy_user_session_path, method: :delete,class: 'btn btn-danger') %>
-          
-    </div>
     <%else%>
     <div class="col-md-2 offset-md-5">
-    <%= link_to('Login', new_user_session_path,class: 'btn white-color') %>   
-    <%= link_to('Register',new_user_registration_path,class: 'btn white-color') %>   
+        <%= link_to('Login', new_user_session_path,class: 'btn white-color') %>   
+        <%= link_to('Register',new_user_registration_path,class: 'btn white-color') %>   
     </div>
     
     <%end%>
