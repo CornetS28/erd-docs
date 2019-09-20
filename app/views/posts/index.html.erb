@@ -13,7 +13,7 @@
 
 
         <div class="card-footer bg-white">
-          <% if current_user.liked_posts.include?(@post) %>
+          <% if current_user.liked_posts.include?(p) %>
             <%= link_to "",  like_path(id: p.id), 
             method: :delete,class:"fa fa-lg fa-thumbs-down" %>
           <% else %>

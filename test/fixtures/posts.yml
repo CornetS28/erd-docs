@@ -2,8 +2,10 @@
 
 one:
   content: MyString
+  likes_count: 0
   author: mike
 
 two:
   content: MyString
+  likes_count: 0
   author: sarah

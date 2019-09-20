@@ -5,6 +5,7 @@ class LikesController < ApplicationController
   def create
     @like = Like.new(like_param)
     @like.save
+    debugger
     @status = params[:status]
     if @status == 'show'
       redirect_to post_path(params[:id])
