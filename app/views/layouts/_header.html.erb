@@ -6,20 +6,12 @@
        
        <%= current_user.surname %>  <%=current_user.first_name %> !</span>
         <%= link_to('All users',users_path, class: 'btn btn-info' ) %> 
-        <% if User.any? %>
-          <%@users = User.all%>
+        <%if !current_user.requests.empty?%>
+          <%= link_to "Notifications", users_path,  class: 'btn btn-info' %>
         <%end%>
-          <% @users.each do |user|%>
-              <%if current_user.friends.include? user%>
-                 <%" "%>
-              <%elsif current_user.friend_requests.include? user%>
-                 <%" "%>
-              <%elsif current_user.requests.include? user%>
-                 <%= link_to "Notifications", users_path,  class: 'btn btn-info' %>
-              <%end%>
-          <%end%>
+        
         <%= link_to('Friends', friends_path(filter: 'friends'),  class:"btn btn-info")%>
-       <%= link_to('Logout', destroy_user_session_path, method: :delete,class: 'btn btn-danger') %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete,class: 'btn btn-danger') %>
     <%else%>
     <div class="col-md-2 offset-md-5">
         <%= link_to('Login', new_user_session_path,class: 'btn white-color') %>   
