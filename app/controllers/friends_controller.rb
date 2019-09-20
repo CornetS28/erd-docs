@@ -10,7 +10,7 @@ class FriendsController < ApplicationController
   end
 
   def create
-    @friend = Friend.new(user_id: current_user.id, friend_id: params[:friend_id], status: false)  
+    @friend = Friend.new(user_id: current_user.id, friend_id: params[:friend_id], status: false)
     @friend.save
     redirect_back(fallback_location: root_path)
   end
@@ -24,7 +24,7 @@ class FriendsController < ApplicationController
   end
 
   private
-  
+
   def friend_param
     params.require(:friend_id).permit
   end
