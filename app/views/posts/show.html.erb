@@ -1,14 +1,33 @@
-    <div class="card mb-3">
+    <div class="card mb-3 col-md-4 offset-md-3">
       <div class="card-header m-0 row bg-white">
         <div class="col-1">
-          <%= image_tag @post.author.image_link+"?s=50", class:"rounded-circle" %>
+          <%# <%= image_tag @post.author.image_url+"?s=50", class:"rounded-circle" %>
         </div>
         <div class="col-11 text-left">
-          <%= link_to @post.author.name, user_path(@post.author), class: ''%>
-          <br />
+          <%# <%= link_to @post.author.name, user_path(@post.author), class: ''%>
           Published : <%= time_ago_in_words @post.created_at %> ago
         </div>
       </div>
       <div class="card-body">
         <p class="card-text"><%= @post.content %></p>
       </div>
+
+      <div class="card-footer bg-white">
+        <% if current_user.liked_posts.include?(@post) %>
+        <%= link_to "",  like_path(id: @post.id), 
+            method: :delete,class:"fa fa-lg fa-thumbs-down" %>
+        <% else %>
+        <%= link_to "", likes_path(id: @post.id),
+            method: :post,class:"fa fa-lg fa-thumbs-up" %>
+        <% end %>
+        <div class="d-inline ">
+          Like : <%= @post.likes_count %>
+        </div>
+        <div class="float-right">
+          <% if current_user == @post.author %>
+          <%= link_to "Edit", edit_post_path(@post), class:"btn btn-primary" %>
+          <%= link_to "Delete", post_path(@post), method: :delete, class:"ml-2 btn btn-danger" %>
+          <%end%>
+        </div>
+      </div>
+    </div>
