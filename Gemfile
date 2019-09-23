@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 4.3.1'
 
 gem 'devise'
+gem 'font-awesome-rails'
+gem 'bootstrap-social-rails'
 
 gem 'rails-controller-testing'
 # Use Redis adapter to run Action Cable in production

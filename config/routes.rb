@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :friends, only: [:create, :index, :create]
   patch '/friends', to: 'friends#accept'
 
+  resources :likes, only: %i[create destroy]
+  resources :comments, only: %i[create]
+  
 end
