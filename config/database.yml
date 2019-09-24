@@ -3,7 +3,8 @@ default: &default
   encoding: unicode
   username: sam
   password: 123456
-  host: ''
+  host: 127.0.0.1
+  # host: ''
 
 development:
   <<: *default
