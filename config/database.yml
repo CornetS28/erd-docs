@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: facebook-on-rails
+  database: facebook-on-rails2
 
 test:
   <<: *default
