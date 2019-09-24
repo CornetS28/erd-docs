@@ -1,10 +1,8 @@
     <div class="card mb-3 col-md-4 offset-md-3">
-      <div class="card-header m-0 row bg-white">
-        <div class="col-1">
-          <%# <%= image_tag @post.author.image_url+"?s=50", class:"rounded-circle" %>
-        </div>
+      <div class="card-header m-0 row bg-white">       
         <div class="col-11 text-left">
-          <%# <%= link_to @post.author.name, user_path(@post.author), class: ''%>
+          <%= link_to @post.author.username, user_path(@post.author), class: ''%>
+          <br />
           Published : <%= time_ago_in_words @post.created_at %> ago
         </div>
       </div>
