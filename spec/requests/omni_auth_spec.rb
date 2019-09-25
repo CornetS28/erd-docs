@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
- 
+
 OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:facebook] = OpenStruct.new(
   provider: 'facebook',
@@ -12,7 +12,7 @@ OmniAuth.config.mock_auth[:facebook] = OpenStruct.new(
   )
 )
 RSpec.describe 'Omniauth', type: :request do
-  describe 'Facebook login flow' do  
+  describe 'Facebook login flow' do
     it '' do
       get posts_path
       expect(response).to redirect_to(user_session_path)
