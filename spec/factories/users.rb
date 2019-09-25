@@ -8,6 +8,8 @@ FactoryBot.define do
     surname { 'chinenye' }
     sex { 'female' }
     password { '123456322' }
+    provider {}
+    uid {}
   end
 
   factory :friend, class: User do
@@ -17,5 +19,7 @@ FactoryBot.define do
     surname { 'Bronze' }
     sex { 'male' }
     password { '123456322' }
+    provider {}
+    uid {}
   end
 end
