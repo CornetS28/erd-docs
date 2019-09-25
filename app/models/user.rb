@@ -25,6 +25,9 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.username 
+      user.surname = auth.info.name.split(' ')[0]
+      user.first_name = !auth.info.name.split(' ')[1].nil? ? auth.info.name.split(' ')[1] : ' '
+      user.image_url = auth.info.image
     end
   end
 end

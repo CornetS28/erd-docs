@@ -38,18 +38,6 @@ ActiveRecord::Schema.define(version: 2019_09_24_194403) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer "recipient_id"
-    t.integer "actor_id"
-    t.datetime "read_at"
-    t.string "action"
-    t.integer "notifiable_id"
-    t.string "notifiable_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "read", default: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "content"
     t.integer "author_id"
