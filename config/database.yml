@@ -11,3 +11,6 @@ test:
   <<: *default
   database: facebook-on-rails_test
   
+production:
+  <<: *default
+  database: facebook-on-production
