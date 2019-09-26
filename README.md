@@ -7,3 +7,6 @@
 
 ### Project link:
 This project is available on [Github link](https://github.com/CornetS28/mini-facebook)
+
+### Live Project
+The link to the live project is [Mini-facebook](https://still-scrubland-07082.herokuapp.com)
