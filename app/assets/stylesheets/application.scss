@@ -1,0 +1,97 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";   
+ @import "bootstrap-social";
+ @import "font-awesome";
+
+.no-link-style{
+    text-decoration: none;
+    color:inherit;
+}
+ .card{
+     padding:12px;
+     margin-top: 15px;
+ }
+
+ .comment-name{
+     font-weight: bold;
+     color: #385898;
+ }
+ .sign-btn{
+     margin-top:5px;
+     background-color: #5d9649;
+ }
+
+ .post-btn{
+     width:100px;
+     height: 30px;
+     color : white;
+     background-color: #3b5998;
+     border-radius: 5px;
+     border:none;
+ }
+
+ .post-user{
+     color : #385898;
+     font-size: 18px;
+     font-weight: bold;
+ }
+
+ .post-time{
+    color : #d3d3d3;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.post-content{
+    width:400px;
+    border-bottom: 1px solid gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.large-b-margin{
+    margin-bottom: 60px;
+}
+
+ .clear-fix{
+     clear: both;
+ }
+ header{
+     height: 85px;
+     background-color: #3b5998;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     padding-top:20px;
+     h2{
+         font-size: bold;
+         color:white;
+         font-weight: bold;
+     }
+     div{
+        
+         .white-color{
+            color:white;
+         }
+     }
+ }
+
+ .shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}

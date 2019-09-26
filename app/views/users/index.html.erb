@@ -1,0 +1,32 @@
+<div class="row">
+  <%@users.each do |user|%>
+      <div class="col-md-3 px-1 mb-2 text-center">
+        <div class='w-100 h-100 shadow-sm py-4 px-3 bg-white'>
+          <%= link_to "#{user.first_name}  #{user.last_name}", user_path(user) %><br />
+
+          <small class='text-muted pt-0'><%=user.email%></small>
+          <small class='text-muted d-block pt-0'>Joined <%= time_ago_in_words user.created_at %> ago</small>
+              <%if current_user.friends.include? user%>
+                  <p>friend</p>
+              <%elsif current_user.friend_requests.include? user%>
+                  <p>Request Sent</p>
+              <%elsif current_user.requests.include? user%>
+                  <%= form_with url: '/friends', method: 'patch' do |f| %>
+                    <p>
+                      <%=f.hidden_field :friend_id, value: user.id%>
+                      <%= f.submit 'Accept Request', class:"btn btn-info"%>
+                    </p>
+                  <% end %>
+              <%else%>
+                  <%= form_with url: '/friends', method: 'post' do |f| %>
+                    <p>
+                      <%=f.hidden_field :friend_id, value: user.id%>
+                      <%= f.submit 'Add friend',  class:"btn btn-info"%>
+                    </p>
+                  <% end %>
+              <%end%>
+           </div>
+        </div>
+       
+    <%end%>
+  </div>

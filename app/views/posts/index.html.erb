@@ -1,0 +1,48 @@
+<div>
+  <%= render "form", text:'Update post'%>
+ 
+  <div class="col-md-6 clear-fix">
+    <% @posts.each do |p| %>
+      <div class="card">
+      <%= link_to p.author.surname, user_path(p.author), class: 'post-user'%>
+      <br />
+      <span class="post-time  ">Published : <%= time_ago_in_words p.created_at %> ago</span>
+
+      <div class="card-body post-content">
+        <p class="card-text"><%= p.content %></p>
+
+
+        <div class="card-footer bg-white">
+          <% if current_user.liked_posts.include?(p) %>
+            <%= link_to "",  like_path(id: p.id), 
+            method: :delete,class:"fa fa-lg fa-thumbs-down" %>
+          <% else %>
+            <%= link_to "", likes_path(post_id: p.id, user_id: current_user.id),
+            method: :post,class:"fa fa-lg fa-thumbs-up" %>
+          <% end %>
+          <div class="d-inline ">
+            Like : <%= p.likes_count %>
+          </div>
+        </div>
+         <div class="card-footer bg-white">
+            <%p.comments.each do |comment|%>
+              <p>
+                <span class="comment-name"><%=comment.user.surname%> <%=comment.user.first_name%></span>
+                 &nbsp;&nbsp;
+                <%=comment.comment%>
+              <p>
+            <%end%>
+            <%= form_with url: '/comments', method: 'post' do |f| %>
+              <p>
+                <%=f.hidden_field :post_id, value: p.id%>
+                <%=f.hidden_field :user_id, value: current_user.id%>
+                <%= f.text_field :comment, :placeholder => "New comment", size: "15x1",class: "form-control" %>
+              </p>
+            <% end %>
+        </div> 
+      </div>
+    </div>
+        
+    <% end %>
+  </div>
+</div>

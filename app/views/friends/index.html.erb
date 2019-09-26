@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Friends</h2>
+    <div class="row">
+        <%@friends.each do |user|%>
+            <div class="col-md-3 px-1 mb-2 text-center">
+                <div class='w-100 h-100 shadow-sm py-4 px-3 bg-white'>
+                     <%= link_to "#{user.first_name}  #{user.last_name}", user_path(user) %><br />
+                    <small class='text-muted pt-0'><%=user.email%></small>
+                    <small class='text-muted d-block pt-0'>Joined <%= time_ago_in_words user.created_at %> ago</small>  
+                </div>
+            </div>
+        <%end%>
+    </div>
+ </div>
+

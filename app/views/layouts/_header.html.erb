@@ -1,0 +1,27 @@
+<header class="row">
+    <h2 class="col-md-3 offset-md-1"><a class="no-link-style" href="<%=posts_path%>">micro-facebook</a></h2>
+    <%if user_signed_in?%>
+    <div class="col-md-6 offset-md-2">
+      Hello <span class="white-color"><a class="no-link-style" href="<%= user_path(current_user) %>"><%= current_user.surname %>  <%=current_user.first_name %></a>!</span>
+        <%= link_to('All users',users_path, class: 'btn btn-info' ) %> 
+        <%if !current_user.requests.empty?%>
+          <%= link_to "Notifications", users_path,  class: 'btn btn-info' %>
+        <%end%>
+        
+        <%= link_to('Friends', friends_path(filter: 'friends'),  class:"btn btn-info")%>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete,class: 'btn btn-danger') %>
+    </div>
+    <%else%>
+    <div class="col-md-2 offset-md-5">
+        <%= link_to('Login', new_user_session_path,class: 'btn white-color') %>   
+        <%= link_to('Register',new_user_registration_path,class: 'btn white-color') %>   
+    </div>
+    
+    <%end%>
+</header>
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>

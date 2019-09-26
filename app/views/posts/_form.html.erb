@@ -1,0 +1,14 @@
+<div class="col-md-4 mt-4 large-b-margin">
+  <%= form_for @post do |p|%>
+  <% if @post.errors.any? %>
+    <ul class="list-group">
+      <% @post.errors.full_messages.each do |message| %>
+        <li class="list-group-item bg-warning"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= p.text_area :content, class:"form-control z-depth-1", id:"exampleFormControlTextarea6", rows:"3", placeholder:"Write something here..." %>
+  <%= p.submit value:"Post",class:"mt-2 float-right post-btn"%>
+  <% end %>
+</div>
+

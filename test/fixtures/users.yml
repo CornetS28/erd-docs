@@ -1,0 +1,20 @@
+mike:
+  surname: Uzo
+  first_name: mike
+  last_name: luke
+  sex: male
+  email: mike@gmail.com
+
+john:
+  surname: lulu
+  first_name: john
+  last_name: brown
+  sex: male
+  email: john@gmail.com
+
+sarah:
+  surname: fisuel
+  first_name: sarah
+  last_name: dunga
+  sex: female
+  email: sarah@gmail.com
